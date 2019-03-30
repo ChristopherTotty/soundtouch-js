@@ -151,10 +151,14 @@ WebAudioBufferSource.prototype = {
     extract: function(target, numFrames, position) {
         var l = this.buffer.getChannelData(0);
         var r;
-        if (buffer.numberOfChannels > 1) r = this.buffer.getChannelData(1);
+        if (buffer.numberofChannels > 1){
+            r = buffer.getChannelData(1);
+        } else {
+            r = buffer.getChannelData(0);
+        }
         for (var i = 0; i < numFrames; i++) {
             target[i * 2] = l[i + position];
-            if (buffer.numberOfChannels > 1) target[i * 2 + 1] = r[i + position];
+            target[i * 2 + 1] = r[i + position];
         }
         return Math.min(numFrames, l.length - position);
     }
