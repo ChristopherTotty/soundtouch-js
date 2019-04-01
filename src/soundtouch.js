@@ -182,3 +182,9 @@ function getWebAudioNode(context, filter, bufSize) {
     };
     return node;
 }
+
+module.exports = {
+    SoundTouch: SoundTouch,
+    WebAudioBufferSource: WebAudioBufferSource,
+    getWebAudioNode: getWebAudioNode
+}

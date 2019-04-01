@@ -51,3 +51,7 @@ AbstractFifoSamplePipe.prototype = {
         this._outputBuffer.clear();
     }
 };
+
+module.exports = {
+    AbstractFifoSamplePipe: AbstractFifoSamplePipe
+}

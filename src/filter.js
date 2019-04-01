@@ -127,3 +127,8 @@ extend(SimpleFilter.prototype, {
         this.outputBufferPosition = 0;
     }
 });
+
+module.exports = {
+    FilterSupport: FilterSupport,
+    SimpleFilter: SimpleFilter
+}

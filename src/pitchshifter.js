@@ -23,3 +23,7 @@ extend(PitchShifter.prototype, {
 		this._st.tempo = t;
 	}
 });
+
+module.exports = {
+	PitchShifter: PitchShifter
+}
