@@ -25,5 +25,14 @@ extend(PitchShifter.prototype, {
 });
 
 module.exports = {
+	FifoSampleBuffer: FifoSampleBuffer,
+	FilterSupport: FilterSupport,
+	SimpleFilter: SimpleFilter,
+	AbstractFifoSamplePipe: AbstractFifoSamplePipe,
+	RateTransposer: RateTransposer,
+	SoundTouch: SoundTouch,
+	WebAudioBufferSource: WebAudioBufferSource,
+	getWebAudioNode: getWebAudioNode,
+	Stretch: Stretch,
 	PitchShifter: PitchShifter
 }

@@ -103,7 +103,3 @@ extend(RateTransposer.prototype, {
         return i;
     }
 });
-
-module.exports = {
-    RateTransposer: RateTransposer
-}
