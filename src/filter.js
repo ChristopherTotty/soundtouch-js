@@ -122,8 +122,7 @@ extend(SimpleFilter.prototype, {
     },
 
     clear: function() {
-        // TODO yuck
-        FilterSupport.prototype.clear.call(this);
+        // FilterSupport.prototype.clear.call(this);
         this.outputBufferPosition = 0;
     }
 });
