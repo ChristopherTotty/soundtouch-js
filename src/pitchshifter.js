@@ -1,7 +1,8 @@
 function PitchShifter (ctx, buffer, bufSize) {
 	this._st = new SoundTouch();
-    this._f = new SimpleFilter(new WebAudioBufferSource(buffer), this._st, bufSize);
-    this._node = getWebAudioNode(ctx, this._f);
+	this._src = new WebAudioBufferSource(buffer)
+	this._f = new SimpleFilter(this._src, this._st, bufSize);
+	this._node = getWebAudioNode(ctx, this._f);
 }
 
 PitchShifter.prototype.connect = function(toNode) {
@@ -10,6 +11,10 @@ PitchShifter.prototype.connect = function(toNode) {
 
 PitchShifter.prototype.disconnect = function(toNode) {
 	this._node.disconnect();
+}
+
+PitchShifter.prototype.updateChannel = function (channel) {
+	this._src.channel = channel
 }
 
 extend(PitchShifter.prototype, {

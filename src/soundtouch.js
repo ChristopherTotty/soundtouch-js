@@ -144,17 +144,24 @@ extend(SoundTouch.prototype, {
     }
 });
 
-function WebAudioBufferSource(buffer) {
+function WebAudioBufferSource(buffer, channel) {
     this.buffer = buffer;
+    this.channel = channel || null;
 }
 WebAudioBufferSource.prototype = {
     extract: function(target, numFrames, position) {
-        var l = this.buffer.getChannelData(0);
+        var l;
         var r;
-        if (this.buffer.numberofChannels > 1){
-            r = this.buffer.getChannelData(1);
+        if (this.channel !== null) {
+            l = this.buffer.getChannelData(this.channel);
+            r = l;
         } else {
-            r = this.buffer.getChannelData(0);
+            l = this.buffer.getChannelData(0);
+            if (this.buffer.numberofChannels > 1) {
+                r = this.buffer.getChannelData(1);
+            } else {
+                r = this.buffer.getChannelData(0);
+            }
         }
         for (var i = 0; i < numFrames; i++) {
             target[i * 2] = l[i + position];
