@@ -146,7 +146,7 @@ extend(SoundTouch.prototype, {
 
 function WebAudioBufferSource(buffer, channel) {
     this.buffer = buffer;
-    this.channel = channel || null;
+    this.channel = channel !== undefined ? channel : null;
 }
 WebAudioBufferSource.prototype = {
     extract: function(target, numFrames, position) {

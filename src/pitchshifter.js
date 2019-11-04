@@ -1,6 +1,6 @@
-function PitchShifter (ctx, buffer, bufSize) {
+function PitchShifter (ctx, buffer, bufSize, channel) {
 	this._st = new SoundTouch();
-	this._src = new WebAudioBufferSource(buffer)
+	this._src = new WebAudioBufferSource(buffer, channel)
 	this._f = new SimpleFilter(this._src, this._st, bufSize);
 	this._node = getWebAudioNode(ctx, this._f);
 }
